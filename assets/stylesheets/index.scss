@@ -1,0 +1,25 @@
+.content {
+	position: relative;
+	z-index: 2;
+	top: 30%;
+	margin: 0 auto;
+	max-width: 720px;
+	text-align: center;
+}
+
+.video {
+	position: fixed;
+	top: 50%; left: 50%;
+	z-index: 1;
+	min-width: 100%;
+	min-height: 100%;
+	width: auto;
+	height: auto;
+	transform: translate(-50%, -50%);
+}
+
+.content__heading {
+	margin-bottom: 24px;
+	color: rgb(39,39,39);
+	font-size: 44px;
+}
