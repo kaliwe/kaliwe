@@ -4,7 +4,6 @@ require 'uglifier'
 require 'slim'
 require 'coffee-script'
 require 'sass'
-require 'jquery-cdn'
 require 'execjs'
 
 
