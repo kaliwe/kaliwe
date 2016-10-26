@@ -13,7 +13,7 @@ class App < Sinatra::Base
   set :public_folder, File.join(File.dirname(__FILE__), 'public')
 
   set :assets_paths, %w{assets/javascripts assets/stylesheets
-                        vendor/assetc/javascript}
+                        vendor/assets/javascripts}
   set :assets_css_compressor, :sass
   set :assets_js_compressor, :uglifier
 
