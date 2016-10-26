@@ -1,5 +1,5 @@
 require 'sinatra/base'
-require 'sprockets'
+require 'sinatra/asset_pipeline'
 require 'uglifier'
 require 'slim'
 require 'coffee-script'
@@ -12,22 +12,14 @@ class App < Sinatra::Base
   set :views, proc { File.join(root, 'views') }
   set :public_folder, File.join(File.dirname(__FILE__), 'public')
 
-  environment = Sprockets::Environment.new
+  set :assets_paths, %w{assets/javascripts assets/stylesheets
+                        vendor/assetc/javascript}
+  set :assets_css_compressor, :sass
+  set :assets_js_compressor, :uglifier
 
-  environment.append_path 'assets/javascripts'
-  environment.append_path 'assets/stylesheets'
-  environment.js_compressor = :uglify
-
-  JqueryCdn.install environment
-
+  register Sinatra::AssetPipeline
   get '/' do
     @base_class = 'base_index'
     slim :index
-  end
-
-  get '/assets/*' do
-    p environment
-    env['PATH_INFO'].sub!('/assets', '')
-    environment.call(env)
   end
 end
