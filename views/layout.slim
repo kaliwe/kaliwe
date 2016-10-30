@@ -1,8 +1,8 @@
 doctype html
 html
   head
-    link rel='stylesheet' href='assets/app.css'
-    script src='assets/app.js'
+    link rel='stylesheet' href="#{asset_path 'app.css'}"
+    script src="#{asset_path 'app.js'}"
     title Welcome To Kaliwe
   body class=@base_class
     == yield
